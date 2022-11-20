@@ -1,0 +1,70 @@
+ 
+<%
+setSeries = function(series, i){   
+
+			return `/images/${series[i].id}.${series[i].format}`
+	
+
+}
+%>
+
+<%
+setAuth = function(authType){
+	return `
+	<div id="blocks-auth">
+        <div id="motivation">
+
+                <h1>MySeriesList</h1><br>
+                <p>É impossível ligar os pontos olhando para o futuro, só é possivel ligar os pontos olhando para o passado, mantenha-se alimentando esse fogo que há dentro de você, e nunca perca sua fé, pois é ela que o ajudará a encontrar seu caminho, eu sei que dói pobre menino, mas no futuro tudo isso valerá a pena.</p>
+
+        </div>
+
+
+	<div id="auth-box">
+
+	   	<h1>${authType == "login" ? 'Login' : 'Singup'}</h1><br>
+		<form method='post' action="http://localhost:8000/${authType}">
+
+
+	    <div id="data-inputs">				
+		${authType == "signup" ? `<input type="text" placeholder="user" name="name">`: ''}		
+		<input name="email" type="email" placeholder="email">
+                <input name="password" type="password" placeholder="password">
+                <input id="auth-button" type="submit" value="Confirm">
+	    </div>	        
+		</form>
+		 
+	   </div>
+	
+	</div>
+	</div>
+
+`
+}
+%>
+
+<%
+
+setIndex = function(serie, genreSerie, User){
+	var dataHTML = ''
+	dataHTML += `
+	
+	 <div class="container">
+	 	<h1>${genreSerie}</h1><br>
+
+                <div class="gallery">
+                `
+	for (i in serie){
+	if (series[i].genre == genreSerie) { 
+	 dataHTML += ` <img onclick="getserie(${series[i].id} , ${User != undefined ? User.id : undefined})" value="${series[i].id}" src="data:image/${serie[i].format}; base64, ${serie[i].img}">`
+            }
+
+	}
+	dataHTML += '</div></div>'
+	return dataHTML
+
+
+}
+
+
+%>

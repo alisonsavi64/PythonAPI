@@ -1,0 +1,5 @@
+Refatorar tudo
+Arrumar as stars
+Fazer os slides
+Css
+Arrumar o login

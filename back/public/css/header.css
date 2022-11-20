@@ -1,0 +1,30 @@
+nav {
+    background-color: #ffd700 ;
+    width: 100vw;
+    height: auto;
+}
+
+#container{
+
+    display:flex;
+    padding: 1vw;
+    justify-content: space-between;
+
+}
+
+#logo > i {
+    
+    color:white;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    font-size:2vw;    
+    cursor: pointer;
+}
+
+#itens > i {
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    color: white;
+    font-size: 2vw;
+    padding: 1vw;
+    cursor: pointer;
+   
+}
