@@ -1,0 +1,52 @@
+
+<!DOCTYPE HTML>
+<html>
+ 
+<head>
+
+    <title>MySeriesList</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+
+    <% include('functions');  %>
+
+</head>
+
+<body>
+
+   
+
+        <%- include('header');  %>
+
+    <div class="merchan">
+        <img src="/images/SLIDE.png">
+        <img src="/images/SLIDE2.png">
+        <img src="/images/SLIDE3.png">
+
+    </div>
+
+    <main>
+
+        <div id="sliders">
+            <%var listSeries = ['Action', 'Fantasy', 'Adventure', 'Horror', 'Drama', 'Comedy']%>
+            <% for (i in listSeries) {%>
+                <%- setIndex(locals.seriesData, listSeries[i], locals.userData) %>
+            
+            <% }%>
+        </div>
+
+
+    </main>
+	<%- include('footer');  %>
+
+	<script src="/js/redirects.js"></script>
+	<script src="/js/scroll.js"></script>
+	<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>	
+</body>
+
+</html>

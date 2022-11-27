@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+	<title>Add</title>
+	<link rel="stylesheet" href="/css/addseries.css">
+	<link rel="stylesheet" href="/css/header.css">
+	<link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body>
+	<%- include('header');  %>	
+	<div id="serie">
+		
+		<div>
+			<img src='data:image/<%=serieData.serieFormatImage%>; base64, <%= serieData.serieLogo %> '>
+
+		</div>
+
+		<div id="serie-block">
+
+	    		<h1><%= serieData.serieTitle %></h1>
+	    		<p>Genre: <%= serieData.serieGenre  %></p>
+	    		<p>Episodes: <%= serieData.serieEpisodes  %></p>
+	   		<p>Seasons: <%= serieData.serieSeasons  %></p><br>		
+			<%if (locals.userData != undefined ) { %>
+				<% if (serieData.serieHttpMethod == 'post') { %>
+					<h2>Add serie to your profile</h2>
+				<% } else {  %>
+					<h2> Update your serie  </h2>
+				<% }  %>
+				<form method='post' action='http://localhost:8000/addseries'>
+					<input id="watchedSerieEpisodes" name="watchedSerieEpisodes" placeholder="Episodes" type="text"><br>
+					<input id="watchedSerieSeasons" name="watchedSerieSeasons" placeholder="Seasons" type="text"><br>
+					<input id="starsFeedback" name="starsFeedback" placeholder="Stars" type="text"><br>
+					<input type="hidden" name="serieId" value="<%= serieData.serieId %>">
+					<input type="hidden" name="userId" value="<%= userData.userId %>">
+					<% if (serieData.serieHttpMethod == 'post') { %>
+					<input type="submit" class="click-button" value="Submit"><br>
+					
+					<% } else { %>
+					<input type="hidden" id="serieProcessUniqueId" value="<%= serieData.serieProcessUniqueId %>">
+					<input type="button" class="click-button" onclick="updateUserProfileSerieData()" value="Submit"><br>
+					<% }  %>
+		
+				</form>
+		
+			<% }  %>
+		
+			</div>
+
+	</div>
+	
+	<%- include('footer');  %>
+	
+	<script src="/js/redirects.js"></script>
+
+</body>
+
+<html>
+

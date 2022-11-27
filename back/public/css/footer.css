@@ -1,0 +1,41 @@
+footer{
+
+    background-color: #ffd700  ;
+    width: 100vw;
+    height: auto;
+    position: absolute;
+    bottom: 0;                      
+}
+
+#clicks  > p {
+
+    cursor: pointer;
+    font-size:1vw;
+    color:white;
+    padding: 1vw;
+    text-align: vertical;
+   
+}
+
+#clicks {
+
+	display:flex;
+	margin-left: 30vw;
+	font-size: 3vw;
+}
+
+#all-containers{
+
+	display:block;
+	color: white;
+	text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+	text-align: center;
+	font-size: 3vw;
+}
+
+#final-informations{
+	text-shadow: -1px -1px 0 black, 1px -1px 0 black, -2px 2px 0 black, 1px 1px 0 black;
+	text-align: center;
+	color: white;
+
+}

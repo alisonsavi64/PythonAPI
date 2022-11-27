@@ -1,0 +1,25 @@
+
+
+
+<nav>
+
+        <div id="container">
+            <div id="logo">
+                <i onclick="redirectToHome()">MySeriesList</i>
+            </div>
+            <div id="itens">
+                <% if (locals.userData != undefined) { %>
+                <i><%=locals.userData.userName%></i>
+                <i onclick="redirectToProfile()">Perfil</i>
+                <i onclick="redirectToLogout()">Logout</i>
+		<%} else { %>
+                        <i onclick="redirectToLogin()">Login</i>
+                        <i onclick="redirectToSignup()">Sign up</i>
+                <% } %>
+            </div>
+
+        </div>
+
+    </nav>
+
+

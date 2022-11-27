@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+	<title>Profile</title>
+	<link rel="stylesheet" href="/css/profile.css">
+	<link rel="stylesheet" href="/css/header.css">
+	<link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body>
+	<%- include('header');  %>
+	<div id="main">
+
+		<div id="firts-part">
+
+			<h1><%= locals.userData.userName  %></h1>
+			<div id="infos">
+				
+			</div>
+
+		</div>
+
+		<div id="second-part">
+			<% for (i in locals.seriesDataOfUser) { %>
+				<div class="serie">
+					
+					<div id="about">
+					
+					<div id="about-1">	
+					
+					<img src="data:image/<%= seriesDataOfUser[i].serieFormatImage %>; base64, <%= seriesDataOfUser[i].serieLogo%>"><br>
+					
+					<input type="button" value="X" onclick="deleteUserProfileSerieData(<%= locals.seriesDataOfUser[i].serieProcessUniqueId %>)">
+					
+					<input type="button" value="Edit" onclick="redirectToSpecificSerie(<%= locals.seriesDataOfUser[i].serieId %>, <%= locals.userData.userId %>)">
+					
+					</div>
+					
+					<div id="about-2">
+					<h1 class="text-style"><%= locals.seriesDataOfUser[i].serieTitle  %></h1><br>
+					<p class="text-style">Your Stars: <%= locals.seriesDataOfUser[i].watchedGivedStars %></p><br>
+					<p class="text-style">Serie Rate: <%= locals.seriesDataOfUser[i].serieStarsAVG  %></p><br>
+					<h2 class="text-style">Temporadas</h2><br>
+					<p class="text-style">Disponíveis: <%= locals.seriesDataOfUser[i].serieSeasons  %></p>
+					<p class="text-style">Assistidos: <%= locals.seriesDataOfUser[i].watchedSeasons  %></p><br>
+					<h2 class="text-style">Episódios</h2><br>
+					<p class="text-style">Disponíveis: <%= locals.seriesDataOfUser[i].serieEpisodes  %></p>
+					<p class="text-style">Assistidos: <%=locals.seriesDataOfUser[i].watchedEpisodes%></p>
+					
+					</div>
+			
+				</div>	
+
+				</div>
+			<% }  %>
+		
+		</div>
+
+	</div>
+
+	<%- include('footer');  %>
+
+	<script src="/js/redirects.js"></script>
+</body>
+
+</html>
