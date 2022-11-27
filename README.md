@@ -10,6 +10,6 @@
 
 ![Screenshot from 2022-11-27 10-04-52](https://user-images.githubusercontent.com/98917042/204139583-3ff14f53-fb1e-4b40-9fbb-5073d08a0a7d.png)
 
-# Perfil Do Usu
+# Perfil Do Usuário
 
 ![Screenshot from 2022-11-27 10-05-35](https://user-images.githubusercontent.com/98917042/204139585-ee6de0ef-41d2-439d-a3fa-90da6af79bd9.png)
