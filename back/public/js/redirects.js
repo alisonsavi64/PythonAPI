@@ -1,45 +1,45 @@
-function rtoprofile(){
+function redirectToProfile(){
 
 
         location.href = `/profile`
 
 };
 
-function getserie(serie, id){
+function redirectToSpecificSerie(serie, id){
 
 
         location.href = `/addseries/${id}/${serie}`
 
 };
 
-function logout(){
+function redirectToLogout(){
 
 
         location.href = '/login/logout'
 
 };
 
-function login(){
+function redirectToLogin(){
 
         location.href = '/login'
 
 };
 
-function signup(){
+function redirectToSignup(){
 
         location.href = '/signup'
 
 };
 
-function home(){
+function redirectToHome(){
 
         location.href = '/'
 
 };
 
-function deleteserie(id){
+function deleteUserProfileSerieData(id){
 
-	fetch(`http://localhost:8000/profile/deleteserie/${id}`, {method: 'DELETE'
+	fetch(`http://localhost:8000/profile/${id}`, {method: 'DELETE'
         }).then(function (response) {
 
         response.redirected && (location.href = '/profile')
@@ -50,19 +50,20 @@ function deleteserie(id){
 
 }
 
-function updateserie() {
+function updateUserProfileSerieData() {
 
-	const data = {
-		"epsa": document.getElementById('eps').value,
-		"tempsa": document.getElementById('temps').value,
-                "stars": document.getElementById('stars').value
+	const serieData = {
+
+		"watchedEpisodes": document.getElementById('watchedSerieEpisodes').value,
+		"watchedSeasons": document.getElementById('watchedSerieSeasons').value,
+                "watchedGivedStars": document.getElementById('starsFeedback').value
 	
 	}
 
-	fetch(`http://localhost:8000/addseries/update/${document.getElementById('uniqueid').value}`, {
+	fetch(`http://localhost:8000/addseries/${document.getElementById('serieProcessUniqueId').value}`, {
 	method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-	body: JSON.stringify(data)
+	body: JSON.stringify(serieData)
 
         }).then(function (response) {
 
@@ -70,9 +71,5 @@ function updateserie() {
         }).catch(function (err){
                 console.warn('Error', err);
         })
-
-	
-
-
 
 }

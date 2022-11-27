@@ -6,38 +6,37 @@ const router = express.Router()
 
 router.get('/:userid/:serieid',(req, res) =>{
     
-        axios.get(`http://localhost:5000/api/series/seriebyid/${req.params.userid}/${req.params.serieid}`).then(response => {
-        if (!req.teste){
-                       
-                  
-                  res.render("addseries", {data: response.data, user: undefined})
+        axios.get(`http://localhost:5000/api/series/${req.params.userid}/${req.params.serieid}`).then(response => {
+        if (!req.theresUserCookiesData){     
+                  console.log(response.data)
+                  res.render("addseries", {serieData: response.data.serieData, userData: undefined})
 
         }else{
                 
-                res.render("addseries", {data: response.data, user: req.cookies.data})
+                res.render("addseries", {serieData: response.data.serieData, userData: req.userCookiesData })
 
         }
 });
-
 });
 
 router.post('/', (req, res) => {
-	const url = 'http://localhost:5000/api/series/addseries';
+	const url = 'http://localhost:5000/api/series';
 
-        data = {
-                "eps": req.body.eps,
-                "temps": req.body.temps,
-		"userid": req.body.userid,
-		"serieid": req.body.serieid,
-		"stars": req.body.stars
+        userAddSerieData = {
 
+                "watchedSerieEpisodes": req.body.watchedSerieEpisodes,
+                "watchedSerieSeasons": req.body.watchedSerieSeasons,
+		"userId": req.body.userId,
+		"serieId": req.body.serieId,
+		"starsFeedback": req.body.starsFeedback
 		
-        };	
-	axios.post(url, {data,} ).then(response => {
-		console.log(response)
+        };
+
+	axios.post(url, {userAddSerieData,} ).then(response => {
+		
 		if (Object.keys(response.data).length === 0 && response.data.costructor == undefined){
                   
-		res.send('Série ou Temporada inválida') 
+		  res.send('Série ou Temporada inválida') 
         }else{
                   res.redirect(302, 'profile')
 
@@ -47,10 +46,10 @@ router.post('/', (req, res) => {
        
 });
 
-router.put('/update/:uniqueid', (req, res) => {
-	const id = req.params.uniqueid
-	const data = req.body
-	axios.put(`http://localhost:5000/api/series/updateseries/${id}`, {data}).then(response => {
+router.put('/:uniqueid', (req, res) => {
+	const specificUniqueIdSerieToUpdate = req.params.uniqueid
+	const newUserSerieDataToUpdate = req.body
+	axios.put(`http://localhost:5000/api/series/${specificUniqueIdSerieToUpdate}`, {newUserSerieDataToUpdate}).then(response => {
 		res.redirect('/profile')	
 	})
 

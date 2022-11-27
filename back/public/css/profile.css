@@ -23,7 +23,7 @@ body {
 
 #firts-part{
 
-    border: 1px solid white;
+    border: 1px solid #ffd700 ;
     color: white;
     width:80vw;
     height: auto;
@@ -45,7 +45,7 @@ body {
 
 #second-part {
 
-	border: 1px solid white;
+	border: 1px solid #ffd700 ;
 	width: 80vw;
 	heigth: auto;
 	color: white;
@@ -64,7 +64,7 @@ body {
 #second-part input {
 
     background-color: #ffd700 ;
-    border: 1px solid black;
+    border: 1px solid #ffd700 ;
     color: black;
     width: 10vw;
 

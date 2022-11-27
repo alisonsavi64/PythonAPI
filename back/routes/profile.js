@@ -1,18 +1,21 @@
 const express = require('express')
 const axios = require('axios')
 const router = express.Router()
-const getalluserseries = require('../middlewares/getalluserseries')
+const getAllUserSeries = require('../middlewares/getAllUserSeries')
 
-router.get('/', getalluserseries ,(req, res) =>{
-	res.render("profile", {series: req.series, user: req.cookies.data.user})
+router.get('/', getAllUserSeries ,(req, res) =>{
+
+	res.render("profile", {seriesDataOfUser: req.seriesOfUser, userData: req.userCookiesData})
+
 });
 
-router.delete('/deleteserie/:uniqueid', (req, res) => {
-	const id = req.params.uniqueid
-	const url = `http://localhost:5000/api/series/delseries/${id}`
+router.delete('/:uniqueid', (req, res) => {
+	const specificUniqueIdSerieToDelete = req.params.uniqueid
+	const url = `http://localhost:5000/api/series/${specificUniqueIdSerieToDelete}`
 	axios.delete(url).then(response => {
 
 		res.redirect('/profile')
+
 	})
 	
 })

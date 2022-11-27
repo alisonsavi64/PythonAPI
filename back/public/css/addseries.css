@@ -7,12 +7,13 @@
 
 body {
 
-	background-color: lightskyblue;
+	background-color: #0B0B0B ;
 
 }
 
 #serie{
 	margin-top: 8vh;	
+	margin-left: 20vw;
 	color: white;
 	display:flex;
 
@@ -26,12 +27,12 @@ body {
 
 #serie > div img {
 
-	border: 2px solid white;
+	border: 2px solid #ffd700 ;
 
 }
 
 #serie-block {
-	border: 1px solid black;
+	border: 1px solid #ffd700 ;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -43,7 +44,7 @@ body {
 
 	margin-top: 5%;
 	background-color: white;
-	border: 1px solid black;
+	border: 1px solid white ;
 
 }
 

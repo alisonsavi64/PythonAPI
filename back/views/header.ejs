@@ -5,16 +5,16 @@
 
         <div id="container">
             <div id="logo">
-                <i onclick="home()">MySeriesList</i>
+                <i onclick="redirectToHome()">MySeriesList</i>
             </div>
             <div id="itens">
-                <% if (locals.user != undefined) { %>
-                <i><%=locals.user.name%></i>
-                <i onclick="rtoprofile()">Perfil</i>
-                <i onclick="logout()">Logout</i>
+                <% if (locals.userData != undefined) { %>
+                <i><%=locals.userData.userName%></i>
+                <i onclick="redirectToProfile()">Perfil</i>
+                <i onclick="redirectToLogout()">Logout</i>
 		<%} else { %>
-                        <i onclick="login()">Login</i>
-                        <i onclick="signup()">Sign up</i>
+                        <i onclick="redirectToLogin()">Login</i>
+                        <i onclick="redirectToSignup()">Sign up</i>
                 <% } %>
             </div>
 

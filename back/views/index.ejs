@@ -35,7 +35,7 @@
         <div id="sliders">
             <%var listSeries = ['Action', 'Fantasy', 'Adventure', 'Horror', 'Drama', 'Comedy']%>
             <% for (i in listSeries) {%>
-                <%- setIndex(locals.series, listSeries[i], locals.user) %>
+                <%- setIndex(locals.seriesData, listSeries[i], locals.userData) %>
             
             <% }%>
         </div>

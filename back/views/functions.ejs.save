@@ -55,13 +55,15 @@ setIndex = function(series, genreSerie, User){
 	for (i in series){
 
 	if (series[i].serieGenre == genreSerie) { 
+
 	 dataHTML += ` <img onclick="redirectToSpecificSerie(${series[i].serieId} , ${User != undefined ? User.userId : undefined})" value="${series[i].serieId}" src="data:image/${series[i].serieFormatImage}; base64, ${series[i].serieLogo}">`
+
             }
 
 	}
+
 	dataHTML += '</div></div>'
 	return dataHTML
-
 
 }
 

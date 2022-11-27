@@ -4,28 +4,30 @@ const axios = require('axios')
 
 router.get('/', (req, res) =>{
 
-        res.render("login", {user: 'undefined'})
+        res.render("login", {userData: undefined})
 });
 
 router.get('/logout', (req, res) =>{
-	res.clearCookie('data')
+	res.clearCookie('userData')
 	res.redirect('/')
 })
 
 router.post('/', (req, res) => {
 
-        data = {
-                "email": req.body.email,
-                "password": req.body.password
+        loginUserData = {
+
+                "userEmail": req.body.userEmail,
+                "userPassword": req.body.userPassword
+
         }
 
         axios.post('http://localhost:5000/api/user/login', {
-        data,
+        loginUserData,
         }).then(response => {
-                if (Object.keys(response.data).length === 0 && response.data.coo){
+                if (Object.keys(response.data).length === 0){
 			res.send('Login inválido')
                 }else{
-                        res.cookie('data', response.data)
+                        res.cookie('userData', response.data)
                         res.redirect(302, '/')
                 }
         }).catch((err) => {console.log(err)})

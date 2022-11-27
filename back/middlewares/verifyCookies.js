@@ -1,18 +1,19 @@
 const express = require('express')
 
 
-const verifyCookies = function (req, res, next){
-	const ucookies = req.cookies;
-        if (Object.keys(ucookies).length === 0 && ucookies.costructor == undefined){
-                  req.teste = false
-		  next()
+const verifyIfTheresUserCookies = function (req, res, next){
+	const userCookiesData = req.cookies;
+        if (Object.keys(userCookiesData).length === 0 && userCookiesData.costructor == undefined){
+                  req.theresUserCookiesData = false
+		  						next()
         }else{
-                  req.teste = true
-		  req.usercookies = ucookies
-		  next()
+                  req.theresUserCookiesData = true
+								  req.userCookiesData = userCookiesData.userData.userData
+								  console.log(userCookiesData.userData.userData)
+								  next()
         }
 };
 
-module.exports = verifyCookies
+module.exports = verifyIfTheresUserCookies
 
 
